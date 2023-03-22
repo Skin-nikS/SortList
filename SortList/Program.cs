@@ -17,7 +17,7 @@ namespace PhoneBook
             phoneBook.Add(new Contact("Сергей", "Брин", 799900000013, "serg@example.com"));
             phoneBook.Add(new Contact("Иннокентий", "Смоктуновский", 799900000013, "innokentii@example.com"));
 
-            Console.WriteLine("List without sorting\n");
+            Console.WriteLine("\tList without sorting");
            
             foreach (Contact withoutSortList in phoneBook)
             {
@@ -25,7 +25,7 @@ namespace PhoneBook
             }
             Console.WriteLine();
 
-            Console.WriteLine("Sort list by firstname\n");
+            Console.WriteLine("\tSort list by firstname");
             var sortedStudsbyName = from s in phoneBook orderby s.Name select s;
 
                 foreach (Contact contact in sortedStudsbyName)
@@ -33,7 +33,7 @@ namespace PhoneBook
                     Console.WriteLine(contact.Name + " " + contact.LastName + ": " + contact.PhoneNumber);
                 }
             Console.WriteLine();
-            Console.WriteLine("Sort list by secondname\n");
+            Console.WriteLine("\tSort list by secondname");
             var sortedStudsbysecondname = from s in phoneBook orderby s.LastName select s;
 
             foreach (Contact contact in sortedStudsbysecondname)
