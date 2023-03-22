@@ -1,14 +1,14 @@
 ﻿//Доработайте вашу телефонную книгу из задания 14.2.10 предыдущего юнита так, чтобы контакты телефонной книги были отсортированы сперва по имени, а затем по фамилии.
 
+using System;
+
 namespace PhoneBook
 {
     class Program
     {
         static void Main(string[] args)
         {
-           
             var phoneBook = new List<Contact>();
-
             
             phoneBook.Add(new Contact("Игорь", "Николаев", 79990000001, "igor@example.com"));
             phoneBook.Add(new Contact("Сергей", "Довлатов", 79990000010, "serge@example.com"));
@@ -17,12 +17,19 @@ namespace PhoneBook
             phoneBook.Add(new Contact("Сергей", "Брин", 799900000013, "serg@example.com"));
             phoneBook.Add(new Contact("Иннокентий", "Смоктуновский", 799900000013, "innokentii@example.com"));
 
+            Console.WriteLine("List without sorting\n");
+           
+            foreach (Contact withoutSortList in phoneBook)
+            {
+                Console.WriteLine($"{withoutSortList.Name} {withoutSortList.LastName} {withoutSortList.PhoneNumber} {withoutSortList.Email}");
+            }
+            Console.WriteLine();
+
             Console.WriteLine("Sort list by firstname\n");
             var sortedStudsbyName = from s in phoneBook orderby s.Name select s;
 
                 foreach (Contact contact in sortedStudsbyName)
                 {
-
                     Console.WriteLine(contact.Name + " " + contact.LastName + ": " + contact.PhoneNumber);
                 }
             Console.WriteLine();
@@ -34,8 +41,6 @@ namespace PhoneBook
 
                 Console.WriteLine(contact.LastName +" " + contact.Name + " " + ": " + contact.PhoneNumber);
             }
-
-
         }
 
     }
@@ -54,6 +59,5 @@ namespace PhoneBook
         public long PhoneNumber { get; }
         public String Email { get; }
     }
-
 
 }
